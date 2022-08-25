@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net5.0;net6.0</TargetFrameworks>
+		<Description>Our.Umbraco.Honeypot</Description>
+		<Copyright>Björnmamman AB Sverige</Copyright>
+		<PackageProjectUrl>https://bjornmamman.se/</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/madsoulswe/Our.Umbraco.Honeypot/</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<Version>1.0.0</Version>
+		<PackageId>Our.Umbraco.Honeypot</PackageId>
+		<AssemblyVersion>1.0.0</AssemblyVersion>
+		<FileVersion>1.0.0</FileVersion>
+		<Authors>Björnmamman</Authors>
+		<Company>Björnmamman AB Sweden</Company>
+		<Product>Our.Umbraco.Honeypot</Product>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Content Include="App_Plugins\Our.Umbraco.Honeypot\**\*.*">
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+			<CopyToPublishDirectory>Always</CopyToPublishDirectory>
+		</Content>
+		
+		<None Include="build\**\*.*">
+			<Pack>True</Pack>
+			<PackagePath>buildTransitive</PackagePath>
+		</None>
+
+		<None Remove="Views\Partials\Forms\Themes\default\Fieldtypes\FieldType.Honeypot.cshtml" />
+	</ItemGroup>
+
+	
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
+		<PackageReference Include="Umbraco.Cms.Web.Website" Version="9.0.0" />
+		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="9.0.0" />
+		<PackageReference Include="Umbraco.Forms.Core" Version="9.0.0" />
+		<PackageReference Include="Umbraco.Forms.Web" Version="9.0.0" />
+	</ItemGroup>
+	
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+		<PackageReference Include="Umbraco.Cms.Web.Website" Version="10.0.0" />
+		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="10.0.0" />
+		<PackageReference Include="Umbraco.Forms.Core" Version="10.0.0" />
+		<PackageReference Include="Umbraco.Forms.Web" Version="10.0.0" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <ProjectReference Include="..\Our.Umbraco.Honeypot.Core\Our.Umbraco.Honeypot.Core.csproj" />
+	</ItemGroup>
+
+</Project>

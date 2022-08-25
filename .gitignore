@@ -24,3 +24,9 @@
 
 # Ignore the Models Builder models out of date flag
 **/App_Data/Models/ood.flag
+/.vs
+/src/.vs
+/src/Our.Umbraco.Honeypot/bin/Debug
+/src/Our.Umbraco.Honeypot/obj
+/src/Our.Umbraco.Honeypot.Core/bin/Debug
+/src/Our.Umbraco.Honeypot.Core/obj
