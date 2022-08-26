@@ -11,7 +11,6 @@ namespace Our.Umbraco.Honeypot
 
     public class HoneypotValidationNotificationHandler : INotificationHandler<FormValidateNotification>
     {
-
         public HoneypotValidationNotificationHandler(IOptions<HoneypotOptions> options)
         {
             Options = options.Value;
@@ -29,6 +28,5 @@ namespace Our.Umbraco.Honeypot
                 notification.ModelState.AddModelError("error", "Something went wrong");
             }
         }
-        
     }
 }

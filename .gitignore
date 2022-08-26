@@ -30,3 +30,5 @@
 /src/Our.Umbraco.Honeypot/obj
 /src/Our.Umbraco.Honeypot.Core/bin/Debug
 /src/Our.Umbraco.Honeypot.Core/obj
+/src/Our.Umbraco.Honeypot/bin/Release
+/src/Our.Umbraco.Honeypot.Core/bin/Release

@@ -17,6 +17,10 @@
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	</PropertyGroup>
 
+	<PropertyGroup>
+		<NuGetPackagePack>@(PackageReferenceDependency -> '%(Pack)')</NuGetPackagePack>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<Content Include="App_Plugins\Our.Umbraco.Honeypot\**\*.*">
 			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
@@ -29,6 +33,8 @@
 		</None>
 
 		<None Remove="Views\Partials\Forms\Themes\default\Fieldtypes\FieldType.Honeypot.cshtml" />
+		<Content Include="Views\Partials\Forms\Themes\default\Fieldtypes\FieldType.Honeypot.cshtml" />
+
 	</ItemGroup>
 
 	
@@ -50,5 +56,4 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\Our.Umbraco.Honeypot.Core\Our.Umbraco.Honeypot.Core.csproj" />
 	</ItemGroup>
-
 </Project>
