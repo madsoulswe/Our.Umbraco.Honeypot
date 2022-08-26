@@ -17,12 +17,7 @@ namespace Our.Umbraco.Honeypot.Core
         }
         
         private HoneypotOptions Options { get; }
-
-        /// <summary>
-        /// IsTrapped
-        /// </summary>
-        /// <param name="httpContext"></param>
-        /// <returns></returns>
+        
         public bool IsTrapped(HttpContext httpContext)
         {
             if (httpContext.Items.TryGetValue(HttpContextItemName, out object? value) == false)
@@ -35,7 +30,7 @@ namespace Our.Umbraco.Honeypot.Core
                     trapped = httpContext.Request.Form.Any(x => Options.HoneypotIsFieldName(x.Key) && x.Value.Any(v => string.IsNullOrEmpty(v) == false));
                 }
 
-                if (Options.HoneypotEnableTimeCheck && trapped == false)
+                if (Options.HoneypotEnableTimeCheck && !trapped)
                 {
                     //check time
                     if (httpContext.Request.Form.TryGetValue(Options.HoneypotTimeFieldName, out StringValues timeValues))

@@ -33,7 +33,9 @@
 		</None>
 
 		<None Remove="Views\Partials\Forms\Themes\default\Fieldtypes\FieldType.Honeypot.cshtml" />
-		<Content Include="Views\Partials\Forms\Themes\default\Fieldtypes\FieldType.Honeypot.cshtml" />
+		<Content Include="Views\Partials\Forms\Themes\default\Fieldtypes\FieldType.Honeypot.cshtml">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
 
 	</ItemGroup>
 
@@ -55,5 +57,11 @@
 	
 	<ItemGroup>
 	  <ProjectReference Include="..\Our.Umbraco.Honeypot.Core\Our.Umbraco.Honeypot.Core.csproj" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <Content Update="App_Plugins\Our.Umbraco.Honeypot\FieldTypes\Honeypot.html">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
 	</ItemGroup>
 </Project>

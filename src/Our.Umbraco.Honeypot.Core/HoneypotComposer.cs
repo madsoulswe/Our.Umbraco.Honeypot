@@ -8,7 +8,7 @@ namespace Our.Umbraco.Honeypot.Core
     {
         public void Compose(IUmbracoBuilder builder)
         {
-            builder.Services.Configure<HoneypotOptions>(builder.Config.GetSection("Honeypot"));
+            builder.Services.Configure<HoneypotOptions>(builder.Config.GetSection("Our.Umbraco.Honeypot"));
             builder.Services.AddTransient<HoneypotService>();
         }
     }

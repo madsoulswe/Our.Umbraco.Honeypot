@@ -20,6 +20,12 @@ namespace Our.Umbraco.Honeypot.Core
         {
             base.Process(context, output);
 
+            if (!Options.HoneypotEnableTimeCheck)
+            {
+                return;
+            }
+                
+
             output.TagMode = TagMode.StartTagAndEndTag;
             output.TagName = "div";
 

@@ -26,6 +26,11 @@ namespace Our.Umbraco.Honeypot.Core
         {
             base.Process(context, output);
 
+            if (!Options.HoneypotEnableFieldCheck)
+            {
+                return;
+            }
+
             output.TagMode = TagMode.StartTagAndEndTag;
             output.TagName = "div";
 

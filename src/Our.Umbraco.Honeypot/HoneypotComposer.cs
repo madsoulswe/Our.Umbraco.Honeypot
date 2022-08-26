@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.DependencyInjection;
+using Umbraco.Forms.Core.Providers;
 using Umbraco.Forms.Core.Services.Notifications;
 
 namespace Our.Umbraco.Honeypot
@@ -13,6 +14,7 @@ namespace Our.Umbraco.Honeypot
     {
         public void Compose(IUmbracoBuilder builder)
         {
+            builder.WithCollectionBuilder<FieldCollectionBuilder>().Add<HoneypotFieldType>();
             builder.AddNotificationHandler<FormValidateNotification, HoneypotValidationNotificationHandler>();
         }
     }

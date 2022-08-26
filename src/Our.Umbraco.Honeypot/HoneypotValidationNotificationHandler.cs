@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Options;
 using Our.Umbraco.Honeypot.Core;
 using System;
@@ -25,7 +26,7 @@ namespace Our.Umbraco.Honeypot
 
             if(notification.Context.IsHoneypotTrapped())
             {
-                notification.ModelState.AddModelError("error", "Something went wrong");
+                notification.ModelState.AddModelError("error", Options.HoneypotMessage);
             }
         }
     }
