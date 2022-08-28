@@ -49,3 +49,21 @@ Custom usage
 <honeypot-time />
 
 ```
+
+
+### Global settings
+
+```
+  "Our.Umbraco.Honeypot": {
+    "HoneypotEnableFieldCheck": true, 
+    "HoneypotEnableTimeCheck": true,
+    "HoneypotPrefixFieldName": "hp_",
+    "HoneypotSuffixFieldName": "",
+    "HoneypotTimeFieldName": "__time",
+    "HoneypotMinTimeDuration": "00:02:00,
+    "HoneypotFieldStyles": "display: none !important; position: absolute !important; left: -9000px !important;",
+    "HoneypotFieldClass": "hp-field",
+    "HoneypotFieldNames": [ "Name", "Phone", "Comment", "Message", "Email", "Website" ],
+    "HoneypotMessage": "Something went wrong (HP)"
+  }
+```
