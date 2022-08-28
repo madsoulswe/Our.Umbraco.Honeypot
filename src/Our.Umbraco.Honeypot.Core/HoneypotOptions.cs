@@ -13,7 +13,7 @@ namespace Our.Umbraco.Honeypot.Core
             HoneypotEnableFieldCheck = true;
             HoneypotEnableTimeCheck = true;
             HoneypotPrefixFieldName = "hp_";
-            HoneypotSufixFieldName = "hp_";
+            HoneypotSuffixFieldName = "";
             HoneypotTimeFieldName = "__time";
             HoneypotMinTimeDuration = TimeSpan.FromSeconds(2);
             HoneypotFieldStyles = "display: none !important; position: absolute !important; left: -9000px !important;";
@@ -35,7 +35,7 @@ namespace Our.Umbraco.Honeypot.Core
         public bool HoneypotEnableTimeCheck { get; set; }
         
         public string HoneypotPrefixFieldName { get; set; }
-        public string HoneypotSufixFieldName { get; set; }
+        public string HoneypotSuffixFieldName { get; set; }
 
         public string HoneypotTimeFieldName { get; set; }
         
@@ -46,8 +46,8 @@ namespace Our.Umbraco.Honeypot.Core
             if(!string.IsNullOrWhiteSpace(HoneypotPrefixFieldName))
                 return name.StartsWith($"{HoneypotPrefixFieldName}");
 
-            if (!string.IsNullOrWhiteSpace(HoneypotSufixFieldName))
-                return name.EndsWith($"{HoneypotSufixFieldName}");
+            if (!string.IsNullOrWhiteSpace(HoneypotSuffixFieldName))
+                return name.EndsWith($"{HoneypotSuffixFieldName}");
 
             return false;
         }
