@@ -39,7 +39,7 @@ In your Umbraco Forms form, you will add the new field "Honeypot Field", the res
 
 Or
 
-Custom usage 
+Custom usage:
 
 ```
 @addTagHelper *, Our.Umbraco.Honeypot.Core
@@ -48,6 +48,20 @@ Custom usage
 <honeypot-field />
 <honeypot-time />
 
+```
+
+Valdation:
+
+```
+[HttpPost]
+public async Task<IActionResult> Form(FormModel model)
+{
+    if (HttpContext.IsHoneypotTrapped())
+    {
+        //Log error
+        return View("Form", model);
+    }
+}
 ```
 
 
