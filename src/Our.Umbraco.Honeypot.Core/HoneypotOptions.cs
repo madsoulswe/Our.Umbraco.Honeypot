@@ -35,7 +35,7 @@ namespace Our.Umbraco.Honeypot.Core
         public bool HoneypotEnableTimeCheck { get; set; }
         
         public string HoneypotPrefixFieldName { get; set; }
-        public string HoneypotSuffixFieldName { get; set; }
+        public string? HoneypotSuffixFieldName { get; set; }
 
         public string HoneypotTimeFieldName { get; set; }
         
