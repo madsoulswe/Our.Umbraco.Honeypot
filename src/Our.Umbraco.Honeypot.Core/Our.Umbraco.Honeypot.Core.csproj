@@ -14,7 +14,6 @@
 		<Authors>Björnmamman</Authors>
 		<Company>Björnmamman AB Sweden</Company>
 		<Product>Our.Umbraco.Honeypot.Core</Product>
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	</PropertyGroup>
 
 	<ItemGroup>

@@ -14,7 +14,6 @@
 		<Authors>Björnmamman</Authors>
 		<Company>Björnmamman AB Sweden</Company>
 		<Product>Our.Umbraco.Honeypot</Product>
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	</PropertyGroup>
 
 	<PropertyGroup>
@@ -64,4 +63,5 @@
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </Content>
 	</ItemGroup>
+
 </Project>
