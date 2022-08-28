@@ -14,9 +14,15 @@
 		<Authors>Björnmamman</Authors>
 		<Company>Björnmamman AB Sweden</Company>
 		<Product>Our.Umbraco.Honeypot.Core</Product>
+		<PackageIcon>icon.png</PackageIcon>
 	</PropertyGroup>
 
 	<ItemGroup>
+		<None Include="..\..\icon.png">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+		
 		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
 		<PackageReference Include="Microsoft.AspNetCore.Razor" Version="2.2.0" />
