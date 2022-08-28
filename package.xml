@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<umbPackage>
+	<info>
+		<package>
+			<name>Our.Umbraco.Honeypot</name>
+			<version>0.1.0</version>
+			<iconUrl></iconUrl>
+			<licence url="https://opensource.org/licenses/MIT">MIT</licence>
+			<url>https://our.umbraco.com</url>
+			<requirements type="strict">
+				<major>9</major>
+				<minor>0</minor>
+				<patch>0</patch>
+			</requirements>
+		</package>
+		<author>
+			<name>Dennis Öhman</name>
+			<website>https://bjornmamman.se</website>
+		</author>
+		<readme><![CDATA[]]></readme>
+	</info>
+	<files></files>
+	<Actions />
+	<control />
+	<DocumentTypes />
+	<Templates />
+	<Stylesheets />
+	<Macros />
+	<DictionaryItems />
+	<Languages />
+	<DataTypes />
+</umbPackage>

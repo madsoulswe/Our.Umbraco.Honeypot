@@ -7,10 +7,10 @@
 		<PackageProjectUrl>https://bjornmamman.se/</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/madsoulswe/Our.Umbraco.Honeypot</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<Version>1.0.0</Version>
+		<Version>0.1.0</Version>
 		<PackageId>Our.Umbraco.Honeypot.Core</PackageId>
-		<AssemblyVersion>1.0.0</AssemblyVersion>
-		<FileVersion>1.0.0</FileVersion>
+		<AssemblyVersion>0.1.0</AssemblyVersion>
+		<FileVersion>0.1.0</FileVersion>
 		<Authors>Björnmamman</Authors>
 		<Company>Björnmamman AB Sweden</Company>
 		<Product>Our.Umbraco.Honeypot.Core</Product>
