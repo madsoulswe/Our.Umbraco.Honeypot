@@ -1,0 +1,35 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<PropertyGroup>
+		<OurUmbracoHoneypotPluginPath>$(MSBuildThisFileDirectory)..\App_Plugins\Our.Umbraco.Honeypot\**\*.*</OurUmbracoHoneypotPluginPath>
+		<OurUmbracoHoneypotRazorFilesPath>$(MSBuildThisFileDirectory)..\Views\Partials\Forms\Themes\default\Fieldtypes\**\*.*</OurUmbracoHoneypotRazorFilesPath>
+	</PropertyGroup>
+
+	<Target Name="CopyHoneypot" BeforeTargets="Build">
+		<ItemGroup>
+			<OurUmbracoHoneypotPluginFiles Include="$(OurUmbracoHoneypotPluginPath)" />
+			<OurUmbracoHoneypotRazorFiles Include="$(OurUmbracoHoneypotRazorFilesPath)" />
+		</ItemGroup>
+		
+		<Message Text="Copying Our.Umbraco.Honeypot files: $(OurUmbracoHoneypotPluginPath) - #@(OurUmbracoHoneypotPluginFiles->Count()) files"  Importance="high" />
+		<Copy
+            SourceFiles="@(OurUmbracoHoneypotPluginFiles)"
+            DestinationFiles="@(OurUmbracoHoneypotPluginFiles->'$(MSBuildProjectDirectory)\App_Plugins\Our.Umbraco.Honeypot\%(RecursiveDir)%(Filename)%(Extension)')"
+            SkipUnchangedFiles="true" />
+		
+		<Message Text="Copying Our.Umbraco.Honeypot Razor files: $(OurUmbracoHoneypotRazorFilesPath) - #@(OurUmbracoHoneypotRazorFiles->Count()) files"  Importance="high" />
+		<Copy
+	        SourceFiles="@(OurUmbracoHoneypotRazorFiles)"
+	        DestinationFiles="@(OurUmbracoHoneypotRazorFiles->'$(MSBuildProjectDirectory)\Views\Partials\Forms\Themes\default\Fieldtypes\%(RecursiveDir)%(Filename)%(Extension)')"
+	        SkipUnchangedFiles="true"	/>
+	</Target>
+
+	<Target Name="ClearHoneypot" BeforeTargets="Clean">
+		<ItemGroup>
+			<OurUmbracoHoneypotPluginDir Include="$(MSBuildProjectDirectory)\App_Plugins\Our.Umbraco.Honeypot\" />
+		</ItemGroup>
+		<Message Text="Clear old Our.Umbraco.Honeypot"  Importance="high" />
+		<RemoveDir Directories="@(OurUmbracoHoneypotPluginDir)"  />
+	</Target>
+
+</Project>

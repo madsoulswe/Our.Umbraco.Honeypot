@@ -1,0 +1,6 @@
+@inherits WebViewPage<Umbraco.Forms.Web.Models.FormViewModel>
+@if (!ViewData.ModelState.IsValid || Model.SubmitHandled)
+{
+    <div id="umbraco-forms-form-submitted" style="display: none"></div>
+}
+
