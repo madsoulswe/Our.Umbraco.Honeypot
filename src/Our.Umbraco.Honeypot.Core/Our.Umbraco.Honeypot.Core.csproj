@@ -16,6 +16,7 @@
 		<Product>Our.Umbraco.Honeypot.Core</Product>
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageTags>umbraco,spam,umbraco-marketplace</PackageTags>
 	</PropertyGroup>
 
 	<ItemGroup>
