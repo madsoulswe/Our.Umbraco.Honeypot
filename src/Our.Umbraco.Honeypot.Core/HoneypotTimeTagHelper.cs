@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Razor.TagHelpers;
+﻿
+#if NET5_0_OR_GREATER
+using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.Options;
 using System;
 
@@ -36,3 +38,4 @@ namespace Our.Umbraco.Honeypot.Core
         }
     }
 }
+#endif

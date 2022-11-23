@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Our.Umbraco.Honeypot.Core",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Our.Umbraco.Honeypot", "Our.Umbraco.Honeypot\Our.Umbraco.Honeypot.csproj", "{68FAFA81-07B0-483B-A186-AF69C9FA0939}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Our.Umbraco.Honeypot.WebsiteV10", "Our.Umbraco.Honeypot.WebsiteV10\Our.Umbraco.Honeypot.WebsiteV10.csproj", "{40FC3A84-C005-415B-B81C-C59AA90F01CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Our.Umbraco.Honeypot.WebsiteV10", "Our.Umbraco.Honeypot.WebsiteV10\Our.Umbraco.Honeypot.WebsiteV10.csproj", "{40FC3A84-C005-415B-B81C-C59AA90F01CD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Develop", "Develop", "{1D8C3915-7528-48C0-94B5-DC476A3741E0}"
 	ProjectSection(SolutionItems) = preProject
@@ -15,6 +15,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Develop", "Develop", "{1D8C
 		..\package.xml = ..\package.xml
 		..\README.md = ..\README.md
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Our.Umbraco.Honeypot.V8", "Our.Umbraco.Honeypot.V8\Our.Umbraco.Honeypot.V8.csproj", "{145C0EB7-9AB2-4E03-AC1C-85BE91AAED2B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{CD606107-8CC7-47B0-A0EB-C3E169CCA841}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Our.Umbraco.Honeypot.WebsiteV8", "Our.Umbraco.Honeypot.WebsiteV8\Our.Umbraco.Honeypot.WebsiteV8.csproj", "{272F5C6F-71A1-44D4-966C-E0DF86DB139C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,9 +40,21 @@ Global
 		{40FC3A84-C005-415B-B81C-C59AA90F01CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40FC3A84-C005-415B-B81C-C59AA90F01CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40FC3A84-C005-415B-B81C-C59AA90F01CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{145C0EB7-9AB2-4E03-AC1C-85BE91AAED2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{145C0EB7-9AB2-4E03-AC1C-85BE91AAED2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{145C0EB7-9AB2-4E03-AC1C-85BE91AAED2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{145C0EB7-9AB2-4E03-AC1C-85BE91AAED2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{272F5C6F-71A1-44D4-966C-E0DF86DB139C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{272F5C6F-71A1-44D4-966C-E0DF86DB139C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{272F5C6F-71A1-44D4-966C-E0DF86DB139C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{272F5C6F-71A1-44D4-966C-E0DF86DB139C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{40FC3A84-C005-415B-B81C-C59AA90F01CD} = {CD606107-8CC7-47B0-A0EB-C3E169CCA841}
+		{272F5C6F-71A1-44D4-966C-E0DF86DB139C} = {CD606107-8CC7-47B0-A0EB-C3E169CCA841}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {71AC7436-4D41-4335-9C2A-0A6ECAF18C87}

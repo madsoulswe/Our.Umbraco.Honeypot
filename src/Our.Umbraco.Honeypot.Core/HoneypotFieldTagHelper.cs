@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Razor.TagHelpers;
+﻿#if NET5_0_OR_GREATER
+using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.Options;
 using System;
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,7 +38,7 @@ namespace Our.Umbraco.Honeypot.Core
 
             if (string.IsNullOrWhiteSpace(Name))
             {
-                Name = Options.HoneypotFieldNames[new Random().Next(0, Options.HoneypotFieldNames.Length)];
+                Name = Options.RandomName();
             }
 
             string fieldName = Options.HoneypotGetFieldName(Name);
@@ -49,3 +51,4 @@ namespace Our.Umbraco.Honeypot.Core
         }
     }
 }
+#endif

@@ -1,0 +1,68 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net472</TargetFrameworks>
+		<Description>Our.Umbraco.Honeypot.V8</Description>
+		<Copyright>Björnmamman AB Sverige</Copyright>
+		<PackageProjectUrl>https://bjornmamman.se/</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/madsoulswe/Our.Umbraco.Honeypot/</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<Version>0.1.0</Version>
+		<PackageId>Our.Umbraco.Honeypot.V8</PackageId>
+		<AssemblyVersion>0.1.0</AssemblyVersion>
+		<FileVersion>0.1.0</FileVersion>
+		<Authors>Björnmamman</Authors>
+		<Company>Björnmamman AB Sweden</Company>
+		<Product>Our.Umbraco.Honeypot.V8</Product>
+		<PackageIcon>icon.png</PackageIcon>
+	</PropertyGroup>
+
+	
+	<PropertyGroup>
+		<NuGetPackagePack>@(PackageReferenceDependency -> '%(Pack)')</NuGetPackagePack>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\..\README.md">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+		<None Include="..\..\icon.png">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+
+		<Content Include="App_Plugins\Our.Umbraco.Honeypot\**\*.*">
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+			<CopyToPublishDirectory>Always</CopyToPublishDirectory>
+		</Content>
+		
+		<None Include="build\**\*.*">
+			<Pack>True</Pack>
+			<PackagePath>buildTransitive</PackagePath>
+		</None>
+
+		<None Remove="Views\Partials\Forms\Themes\default\Fieldtypes\FieldType.Honeypot.cshtml" />
+		<Content Include="Views\Partials\Forms\Themes\default\Fieldtypes\FieldType.Honeypot.cshtml">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="UmbracoForms.Core" Version="8.13.0" />
+		<PackageReference Include="UmbracoCms.Core" Version="8.18.0" />
+		<PackageReference Include="UmbracoCms.Web" Version="8.18.0" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <ProjectReference Include="..\Our.Umbraco.Honeypot.Core\Our.Umbraco.Honeypot.Core.csproj" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <Content Update="App_Plugins\Our.Umbraco.Honeypot\FieldTypes\Honeypot.html">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+</Project>
