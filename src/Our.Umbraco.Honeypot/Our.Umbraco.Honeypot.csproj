@@ -15,6 +15,7 @@
 		<Company>Björnmamman AB Sweden</Company>
 		<Product>Our.Umbraco.Honeypot</Product>
 		<PackageIcon>icon.png</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageTags>umbraco,spam,umbraco forms,forms,umbraco-marketplace</PackageTags>
 	</PropertyGroup>
 
