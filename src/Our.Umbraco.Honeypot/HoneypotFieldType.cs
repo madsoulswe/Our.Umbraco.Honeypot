@@ -17,14 +17,14 @@ namespace Our.Umbraco.Honeypot
         public HoneypotFieldType(IOptions<HoneypotOptions> options)
         {
             this.Id = new Guid("efa3f7a1-b603-4060-b416-6449f1a029db");
-            this.Name = "Honeypot Field";
+            this.Category = "Spam";
+            this.Name = "𝖍𝖔𝖓𝖊𝖞𝖕𝖔𝖙";
             this.Description = "This will render hidden fields to trap bots";
             this.Icon = "icon-handprint";
             this.DataType = FieldDataType.Integer;
             this.SortOrder = 10;
             this.FieldTypeViewName = "FieldType.Honeypot.cshtml";
             this.HideLabel = true;
-            this.Category = "Spam";
             
             Options = options.Value;
         }

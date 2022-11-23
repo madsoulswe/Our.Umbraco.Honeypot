@@ -1,0 +1,27 @@
+@using Umbraco.Forms.Mvc
+@using Umbraco.Web.Composing
+@model Umbraco.Forms.Mvc.Models.FieldViewModel
+@{
+    var configuration = Current.Factory.GetInstance<Umbraco.Forms.Core.IFacadeConfiguration>();
+    var siteKey = configuration.GetSetting("RecaptchaV3SiteKey");
+
+    if (!string.IsNullOrEmpty(siteKey))
+    {
+        @* Google JS reCAPTHA API and initialization scripts *@
+        Html.AddFormThemeScriptFile(null, "https://www.google.com/recaptcha/api.js?render=" + siteKey);
+        Html.AddFormThemeScriptFile(null, "~/App_Plugins/UmbracoForms/Assets/recaptcha.v3.init.js");
+
+        @* Hidden Field to store token from invisible reCAPTCHA *@
+        <input type="hidden" id="@Model.Id" name="g-recaptcha-response" />
+
+        @* Recaptcha config for reference from initialization script *@
+        <div class="umbraco-forms-recaptcha-v3-config"
+            style="display: none"
+            data-id="@Model.Id"
+            data-site-key="@siteKey"></div>
+    }
+    else
+    {
+        <p class="error">ERROR: reCAPTCHA v3 is missing the Site Key - Please update the UmbracoForms.config file to include 'key="RecaptchaV3SiteKey"'</p>
+    }
+}
