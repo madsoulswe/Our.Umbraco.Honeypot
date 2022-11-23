@@ -35,7 +35,7 @@ jobs:
         uses: NuGet/setup-nuget@v1.0.7        
         
       - name: Setup .net core
-        uses: actions/setup-dotnet@v2.0.1
+        uses: actions/setup-dotnet@v2.1.1
       
       - name: Create Our.Umbraco.Honeypot.Core
         run: dotnet pack ./src/Our.Umbraco.Honeypot.Core -c ${{ env.CONFIG }} -o ${{ env.OUTPUT }} /p:version=${{ steps.get_version.outputs.VERSION }} 
