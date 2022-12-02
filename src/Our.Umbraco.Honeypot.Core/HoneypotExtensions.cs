@@ -60,7 +60,7 @@ namespace Our.Umbraco.Honeypot.Core
             return new HtmlString(html.ToString());
         }
 
-        public static IHtmlString HoneypotField(this HtmlHelper helper, string name = null, string type = "text", HoneypotOptions options = null)
+        public static IHtmlString HoneypotField(this HtmlHelper helper, HoneypotOptions options = null, string name = null, string type = "text")
         {
             if(options == null)
                 options = Current.Factory.GetInstance<HoneypotOptions>();
