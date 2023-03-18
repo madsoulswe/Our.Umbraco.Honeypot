@@ -4,7 +4,7 @@
 		<TargetFrameworks>net5.0;net6.0</TargetFrameworks>
 		<Description>Our.Umbraco.Honeypot</Description>
 		<Copyright>Björnmamman AB Sverige</Copyright>
-		<PackageProjectUrl>https://bjornmamman.se/</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/madsoulswe/Our.Umbraco.Honeypot/</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/madsoulswe/Our.Umbraco.Honeypot/</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<Version>0.1.0</Version>
