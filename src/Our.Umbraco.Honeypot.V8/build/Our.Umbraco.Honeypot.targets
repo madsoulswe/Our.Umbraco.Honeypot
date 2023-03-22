@@ -1,8 +1,8 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
 	<PropertyGroup>
-		<OurUmbracoHoneypotPluginPath>$(MSBuildThisFileDirectory)..\App_Plugins\Our.Umbraco.Honeypot\**\*.*</OurUmbracoHoneypotPluginPath>
-		<OurUmbracoHoneypotRazorFilesPath>$(MSBuildThisFileDirectory)..\Views\Partials\Forms\Themes\default\Fieldtypes\**\*.*</OurUmbracoHoneypotRazorFilesPath>
+		<OurUmbracoHoneypotPluginPath>$(MSBuildThisFileDirectory)..\content\App_Plugins\Our.Umbraco.Honeypot\**\*.*</OurUmbracoHoneypotPluginPath>
+		<OurUmbracoHoneypotRazorFilesPath>$(MSBuildThisFileDirectory)..\content\Views\Partials\Forms\Themes\default\Fieldtypes\**\*.*</OurUmbracoHoneypotRazorFilesPath>
 	</PropertyGroup>
 
 	<Target Name="CopyHoneypot" BeforeTargets="Build">
