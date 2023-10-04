@@ -14,7 +14,7 @@ The logic is based on: https://github.com/usercode/AspNetCore.Honeypot
 This will install the Core version and a new field in Umbraco Forms.
 
 ```
-V9+: Install-Package Out.Umbraco.Honeypot
+V9+: Install-Package Our.Umbraco.Honeypot
 V8: Install-Package Our.Umbraco.HoneyPot.V8
 
 OR
@@ -27,11 +27,11 @@ V9+: dotnet add package Out.Umbraco.Honeypot
 
 
 ```
-V8+: Install-Package Out.Umbraco.Honeypot.Core
+V8+: Install-Package Our.Umbraco.Honeypot.Core
 
 OR
 
-dotnet add package Out.Umbraco.Honeypot.Core
+dotnet add package Our.Umbraco.Honeypot.Core
 ```
 
 
