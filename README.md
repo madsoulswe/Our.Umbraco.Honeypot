@@ -75,7 +75,7 @@ public async Task<IActionResult> Form(FormModel model)
     "HoneypotPrefixFieldName": "hp_",
     "HoneypotSuffixFieldName": "",
     "HoneypotTimeFieldName": "__time",
-    "HoneypotMinTimeDuration": "00:02:00,
+    "HoneypotMinTimeDuration": "00:02:00",
     "HoneypotFieldStyles": "display: none !important; position: absolute !important; left: -9000px !important;",
     "HoneypotFieldClass": "hp-field",
     "HoneypotFieldNames": [ "Name", "Phone", "Comment", "Message", "Email", "Website" ],
