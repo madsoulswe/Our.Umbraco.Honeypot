@@ -51,7 +51,7 @@ Custom usage (.net 5+):
 
 ```
 
-Valdation:
+Validation:
 
 ```
 [HttpPost]
