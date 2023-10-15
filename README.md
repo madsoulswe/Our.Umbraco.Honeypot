@@ -19,7 +19,7 @@ V8: Install-Package Our.Umbraco.HoneyPot.V8
 
 OR
 
-V9+: dotnet add package Out.Umbraco.Honeypot
+V9+: dotnet add package Our.Umbraco.Honeypot
 ```
 
 
