@@ -5,6 +5,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="App_Plugins\Our.Umbraco.Honeypot\Backoffice\Icons\icon-honeypot.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Plugins\Our.Umbraco.Honeypot\Backoffice\Icons\icon-honeypot.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
     <Content Include="App_Plugins\Our.Umbraco.Honeypot\FieldTypes\Honeypot.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
