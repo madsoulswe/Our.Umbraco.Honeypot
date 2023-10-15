@@ -14,7 +14,7 @@ The logic is based on: https://github.com/usercode/AspNetCore.Honeypot
 This will install the Core version and a new field in Umbraco Forms.
 
 ```
-V9+: Install-Package Out.Umbraco.Honeypot
+V9+: Install-Package Our.Umbraco.Honeypot
 V8: Install-Package Our.Umbraco.HoneyPot.V8
 
 OR
@@ -27,11 +27,11 @@ V9+: dotnet add package Out.Umbraco.Honeypot
 
 
 ```
-V8+: Install-Package Out.Umbraco.Honeypot.Core
+V8+: Install-Package Our.Umbraco.Honeypot.Core
 
 OR
 
-dotnet add package Out.Umbraco.Honeypot.Core
+dotnet add package Our.Umbraco.Honeypot.Core
 ```
 
 
@@ -51,7 +51,7 @@ Custom usage (.net 5+):
 
 ```
 
-Valdation:
+Validation:
 
 ```
 [HttpPost]
@@ -75,7 +75,7 @@ public async Task<IActionResult> Form(FormModel model)
     "HoneypotPrefixFieldName": "hp_",
     "HoneypotSuffixFieldName": "",
     "HoneypotTimeFieldName": "__time",
-    "HoneypotMinTimeDuration": "00:02:00,
+    "HoneypotMinTimeDuration": "00:02:00",
     "HoneypotFieldStyles": "display: none !important; position: absolute !important; left: -9000px !important;",
     "HoneypotFieldClass": "hp-field",
     "HoneypotFieldNames": [ "Name", "Phone", "Comment", "Message", "Email", "Website" ],
