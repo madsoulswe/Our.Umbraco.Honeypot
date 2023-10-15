@@ -22,6 +22,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{CD606107-8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Our.Umbraco.Honeypot.WebsiteV8", "Our.Umbraco.Honeypot.WebsiteV8\Our.Umbraco.Honeypot.WebsiteV8.csproj", "{272F5C6F-71A1-44D4-966C-E0DF86DB139C}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Our.Umbraco.Honeypot.WebsiteV11", "Our.Umbraco.Honeypot.WebsiteV11\Our.Umbraco.Honeypot.WebsiteV11.csproj", "{DE4DA5A5-7E18-4750-B448-24D5CF44016C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,10 @@ Global
 		{272F5C6F-71A1-44D4-966C-E0DF86DB139C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{272F5C6F-71A1-44D4-966C-E0DF86DB139C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{272F5C6F-71A1-44D4-966C-E0DF86DB139C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE4DA5A5-7E18-4750-B448-24D5CF44016C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE4DA5A5-7E18-4750-B448-24D5CF44016C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE4DA5A5-7E18-4750-B448-24D5CF44016C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE4DA5A5-7E18-4750-B448-24D5CF44016C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{40FC3A84-C005-415B-B81C-C59AA90F01CD} = {CD606107-8CC7-47B0-A0EB-C3E169CCA841}
 		{272F5C6F-71A1-44D4-966C-E0DF86DB139C} = {CD606107-8CC7-47B0-A0EB-C3E169CCA841}
+		{DE4DA5A5-7E18-4750-B448-24D5CF44016C} = {CD606107-8CC7-47B0-A0EB-C3E169CCA841}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {71AC7436-4D41-4335-9C2A-0A6ECAF18C87}
