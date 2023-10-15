@@ -9,4 +9,15 @@
 }
 
 @Html.HoneypotTimeField(options)
-@Html.HoneypotField(options)
+
+@{
+    try
+    {
+        @:@Html.HoneypotField(options)
+
+    }
+    catch (Exception e)
+    {
+        <text>@e.Message</text>
+    }
+}

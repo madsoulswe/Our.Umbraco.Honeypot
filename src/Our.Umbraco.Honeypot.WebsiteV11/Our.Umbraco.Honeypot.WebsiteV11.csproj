@@ -1,17 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <None Remove="App_Plugins\Our.Umbraco.Honeypot\Backoffice\Icons\icon-honeypot.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_Plugins\Our.Umbraco.Honeypot\Backoffice\Icons\icon-honeypot.svg">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
-    </Content>
     <Content Include="App_Plugins\Our.Umbraco.Honeypot\FieldTypes\Honeypot.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
@@ -20,13 +13,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Umbraco.Cms" Version="10.1.0" />
+    <PackageReference Include="Umbraco.Cms" Version="11.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <!-- Opt-in to app-local ICU to ensure consistent globalization APIs across different platforms -->
     <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="68.2.0.9" />
-    <PackageReference Include="Umbraco.Forms" Version="10.1.0" />
+    <PackageReference Include="Umbraco.Forms" Version="11.0.0" />
     <ProjectReference Include="..\Our.Umbraco.Honeypot\Our.Umbraco.Honeypot.csproj" />
     <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="68.2.0.9" Condition="$(RuntimeIdentifier.StartsWith('linux')) or $(RuntimeIdentifier.StartsWith('win')) or ('$(RuntimeIdentifier)' == '' and !$([MSBuild]::IsOSPlatform('osx')))" />
   </ItemGroup>

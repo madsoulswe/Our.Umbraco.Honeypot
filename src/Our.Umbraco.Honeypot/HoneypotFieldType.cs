@@ -20,7 +20,7 @@ namespace Our.Umbraco.Honeypot
             this.Category = "Spam";
             this.Name = "𝖍𝖔𝖓𝖊𝖞𝖕𝖔𝖙";
             this.Description = "This will render hidden fields to trap bots";
-            this.Icon = "icon-handprint";
+            this.Icon = "icon-honeypot";
             this.DataType = FieldDataType.Integer;
             this.SortOrder = 10;
             this.FieldTypeViewName = "FieldType.Honeypot.cshtml";
