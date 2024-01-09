@@ -36,16 +36,21 @@ namespace Our.Umbraco.Honeypot
             return "~/App_Plugins/Our.Umbraco.Honeypot/FieldTypes/Honeypot.html";
         }
 
-        public override IEnumerable<string> ValidateField(Form form, Field field, IEnumerable<object> postedValues, HttpContext context, IPlaceholderParsingService placeholderParsingService)
+        //Not sure why...
+        #if NET5_0 || NET6_0
+		public override IEnumerable<string> ValidateField(Form form, Field field, IEnumerable<object> postedValues, HttpContext context, IPlaceholderParsingService placeholderParsingService)
+        #else
+        public override IEnumerable<string> ValidateField(Form form, Field field, IEnumerable<object> postedValues, HttpContext context, IPlaceholderParsingService placeholderParsingService, IFieldTypeStorage fieldTypeStorage)
+        #endif
         {
-            var returnStrings = new List<string>();
+			var returnStrings = new List<string>();
 
-            if (context.IsHoneypotTrapped())
-            {
-                returnStrings.Add(Options.HoneypotMessage);
-            }
-            
-            return returnStrings;
-        }
-    }
+			if (context.IsHoneypotTrapped())
+			{
+				returnStrings.Add(Options.HoneypotMessage);
+			}
+
+			return returnStrings;
+		}
+	}
 }
