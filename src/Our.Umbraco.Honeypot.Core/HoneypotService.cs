@@ -38,6 +38,11 @@ namespace Our.Umbraco.Honeypot.Core
         {
             fieldTrap = false;
             timeTrap = false;
+
+            if (httpContext.Request.ContentType != "application/x-www-form-urlencoded" && httpContext.Request.ContentType != "multipart/form-data")
+            {
+                return false;
+            }
             
             if (!httpContext.Items.Contains(HttpContextItemName) || (httpContext.Items[HttpContextItemName] is bool value) == false)
             {
@@ -90,6 +95,12 @@ namespace Our.Umbraco.Honeypot.Core
         {
             fieldTrap = false;
             timeTrap = false;
+
+            if (!httpContext.Request.HasFormContentType)
+            {
+                //Fallback when Request.Form is missing (Umbraco Forms API)
+                return false;
+            }
 
             if (httpContext.Items.TryGetValue(HttpContextItemName, out object? value) == false)
             {
