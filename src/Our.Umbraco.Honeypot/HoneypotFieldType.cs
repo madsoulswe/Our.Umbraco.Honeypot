@@ -18,13 +18,13 @@ namespace Our.Umbraco.Honeypot
         public const string SpecialFieldName = "𝖍𝖔𝖓𝖊𝖞𝖕𝖔𝖙";
         public HoneypotFieldType(IOptions<HoneypotOptions> options)
         {
-            this.Id = new Guid("efa3f7a1-b603-4060-b416-6449f1a029db");
-            this.Category = "Spam";
+			this.Id = new Guid("efa3f7a1-b603-4060-b416-6449f1a029db");
+			this.Category = "Spam";
 #if NET8_0_OR_GREATER
-			this.Name = "Honeypot";
+			this.Name = options.Value.HoneypotFieldTypeName;
 			this.Alias = "hp";
 #else
-			this.Name = SpecialFieldName;
+			this.Name = options.Value.HoneypotFieldTypeName;
 #endif
 			this.Description = "This will render hidden fields to trap bots";
             this.Icon = "icon-honeypot";
@@ -34,9 +34,14 @@ namespace Our.Umbraco.Honeypot
             this.HideLabel = true;
             
             Options = options.Value;
-        }
 
-        private HoneypotOptions Options { get; }
+#if NET10_0_OR_GREATER
+    EditView = "Honeypot.PropertyEditorUi.Image";
+    PreviewView = "Honeypot.FieldPreview.Image";
+#endif
+		}
+
+		private HoneypotOptions Options { get; }
 
         public override string GetDesignView()
         {

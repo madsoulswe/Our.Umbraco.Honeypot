@@ -79,6 +79,9 @@ public async Task<IActionResult> Form(FormModel model)
     "HoneypotFieldStyles": "display: none !important; position: absolute !important; left: -9000px !important;",
     "HoneypotFieldClass": "hp-field",
     "HoneypotFieldNames": [ "Name", "Phone", "Comment", "Message", "Email", "Website" ],
-    "HoneypotMessage": "Something went wrong (HP)"
+    "HoneypotMessage": "Something went wrong (HP)",
+    "HoneypotFieldTypeName": "𝖍𝖔𝖓𝖊𝖞𝖕𝖔𝖙"
   }
 ```
+
+**HoneypotFieldTypeName:** *Umbraco Forms renders the fieldtypename on the frontend as a class and this allows you to rename the field.*
