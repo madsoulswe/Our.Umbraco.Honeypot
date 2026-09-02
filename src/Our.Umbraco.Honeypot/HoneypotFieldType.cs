@@ -12,14 +12,21 @@ using Umbraco.Forms.Core.Services;
 
 namespace Our.Umbraco.Honeypot
 {
+
     public class HoneypotFieldType : global::Umbraco.Forms.Core.FieldType
     {
+        public const string SpecialFieldName = "𝖍𝖔𝖓𝖊𝖞𝖕𝖔𝖙";
         public HoneypotFieldType(IOptions<HoneypotOptions> options)
         {
             this.Id = new Guid("efa3f7a1-b603-4060-b416-6449f1a029db");
             this.Category = "Spam";
-            this.Name = "𝖍𝖔𝖓𝖊𝖞𝖕𝖔𝖙";
-            this.Description = "This will render hidden fields to trap bots";
+#if NET8_0_OR_GREATER
+			this.Name = "Honeypot";
+			this.Alias = "hp";
+#else
+			this.Name = SpecialFieldName;
+#endif
+			this.Description = "This will render hidden fields to trap bots";
             this.Icon = "icon-honeypot";
             this.DataType = FieldDataType.Integer;
             this.SortOrder = 10;
@@ -37,11 +44,11 @@ namespace Our.Umbraco.Honeypot
         }
 
         //Not sure why...
-        #if NET5_0 || NET6_0
+#if NET5_0 || NET6_0
 		public override IEnumerable<string> ValidateField(Form form, Field field, IEnumerable<object> postedValues, HttpContext context, IPlaceholderParsingService placeholderParsingService)
-        #else
+#else
         public override IEnumerable<string> ValidateField(Form form, Field field, IEnumerable<object> postedValues, HttpContext context, IPlaceholderParsingService placeholderParsingService, IFieldTypeStorage fieldTypeStorage)
-        #endif
+#endif
         {
 			var returnStrings = new List<string>();
 

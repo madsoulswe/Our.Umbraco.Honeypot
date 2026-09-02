@@ -1,5 +1,4 @@
-﻿
-using System.Web;
+﻿using System.Web;
 
 #if NETFRAMEWORK
 
@@ -22,16 +21,21 @@ namespace Our.Umbraco.Honeypot.Core
 
         private HoneypotOptions Options { get; }
 
+        public HoneypotService(HoneypotOptions options)
+        {
+            Options = options;
+        }
+
+#if !NETFRAMEWORK
+        public HoneypotService(IOptions<HoneypotOptions> options)
+        {
+            Options = options.Value;
+        }
+#endif
 
         public bool IsTrapped(HttpContext httpContext)
         {
-            return IsTrapped(httpContext);
-        }
-
-#if NETFRAMEWORK
-            public HoneypotService(HoneypotOptions options)
-        {
-            Options = options;
+            return IsTrapped(httpContext, out _, out _);
         }
 
         public bool IsTrapped(HttpContext httpContext, out bool fieldTrap, out bool timeTrap)
@@ -39,96 +43,69 @@ namespace Our.Umbraco.Honeypot.Core
             fieldTrap = false;
             timeTrap = false;
 
+#if NETFRAMEWORK
+
             if (httpContext.Request.ContentType != "application/x-www-form-urlencoded" && httpContext.Request.ContentType != "multipart/form-data")
             {
                 return false;
             }
-            
-            if (!httpContext.Items.Contains(HttpContextItemName) || (httpContext.Items[HttpContextItemName] is bool value) == false)
+#else
+            if (!httpContext.Request.HasFormContentType)
             {
-                
+                return false;
+            }
+#endif
+
+#if NETFRAMEWORK
+            if (!httpContext.Items.Contains(HttpContextItemName) || (httpContext.Items[HttpContextItemName] is bool value) == false)
+#else
+            if (httpContext.Items.TryGetValue(HttpContextItemName, out object? value) == false)
+#endif
+            {
                 bool trapped = false;
 
                 if (Options.HoneypotEnableFieldCheck)
                 {
-                    //check fields
-                    foreach(var inputKey in httpContext.Request.Form.AllKeys)
+#if NETFRAMEWORK
+                    foreach (var inputKey in httpContext.Request.Form.AllKeys)
                     {
-                        if (Options.HoneypotIsFieldName(inputKey) && !string.IsNullOrEmpty(httpContext.Request.Form[inputKey]))
+                        if (IsFieldTrapTriggered(inputKey, httpContext.Request.Form[inputKey]))
                         {
                             fieldTrap = true;
                             trapped = true;
                             break;
                         }
                     }
+#else
+                    if (httpContext.Request.Form.Any(x => IsFieldTrapTriggered(x.Key, x.Value)))
+                    {
+                        fieldTrap = true;
+                        trapped = true;
+                    }
+#endif
                 }
 
                 if (Options.HoneypotEnableTimeCheck && !trapped)
                 {
-                    //check time
+#if NETFRAMEWORK
                     if (httpContext.Request.Form[Options.HoneypotTimeFieldName] is string timeValue)
                     {
-                        TimeSpan diff = DateTime.UtcNow - new DateTime(long.Parse(timeValue), DateTimeKind.Utc);
-
-                        timeTrap = true;
-                        trapped = diff < Options.HoneypotMinTimeDuration;
-                    }
-                }
-
-                httpContext.Items.Add(HttpContextItemName, trapped);
-
-                return trapped;
-            }
-            else
-            {
-                return (bool)value;
-            }
-        }
-
-#else
-        public HoneypotService(IOptions<HoneypotOptions> options)
-        {
-            Options = options.Value;
-        }
-
-        public bool IsTrapped(HttpContext httpContext, out bool fieldTrap, out bool timeTrap)
-        {
-            fieldTrap = false;
-            timeTrap = false;
-
-            if (!httpContext.Request.HasFormContentType)
-            {
-                //Fallback when Request.Form is missing (Umbraco Forms API)
-                return false;
-            }
-
-            if (httpContext.Items.TryGetValue(HttpContextItemName, out object? value) == false)
-            {
-
-                bool trapped = false;
-
-                if (Options.HoneypotEnableFieldCheck)
-                {
-                    //check fields
-                    fieldTrap = true;
-                    trapped = httpContext.Request.Form.Any(x => Options.HoneypotIsFieldName(x.Key) && x.Value.Any(v => !string.IsNullOrEmpty(v)));
-                }
-
-                if (Options.HoneypotEnableTimeCheck && !trapped)
-                {
-                    //check time
-                    if (httpContext.Request.Form.TryGetValue(Options.HoneypotTimeFieldName, out StringValues timeValues))
-                    {
-                        if (timeValues.Any())
+                        if (IsTimeTrapTriggered(timeValue))
                         {
-                            TimeSpan diff = DateTime.UtcNow - new DateTime(long.Parse(timeValues.First()), DateTimeKind.Utc);
-
                             timeTrap = true;
-                            trapped = diff < Options.HoneypotMinTimeDuration;
+                            trapped = true;
                         }
                     }
-
-
+#else
+                    if (httpContext.Request.Form.TryGetValue(Options.HoneypotTimeFieldName, out StringValues timeValues) && timeValues.Any())
+                    {
+                        if (IsTimeTrapTriggered(timeValues.First()))
+                        {
+                            timeTrap = true;
+                            trapped = true;
+                        }
+                    }
+#endif
                 }
 
                 httpContext.Items.Add(HttpContextItemName, trapped);
@@ -140,6 +117,23 @@ namespace Our.Umbraco.Honeypot.Core
                 return (bool)value;
             }
         }
+
+        public bool IsFieldTrapTriggered(string key, string value)
+        {
+            return Options.HoneypotIsFieldName(key) && !string.IsNullOrEmpty(value);
+        }
+
+#if !NETFRAMEWORK
+        public bool IsFieldTrapTriggered(string key, StringValues values)
+        {
+            return Options.HoneypotIsFieldName(key) && values.Any(v => !string.IsNullOrEmpty(v));
+        }
 #endif
+
+        public bool IsTimeTrapTriggered(string timeValue)
+        {
+            TimeSpan diff = DateTime.UtcNow - new DateTime(long.Parse(timeValue), DateTimeKind.Utc);
+            return diff < Options.HoneypotMinTimeDuration;
+        }
     }
 }

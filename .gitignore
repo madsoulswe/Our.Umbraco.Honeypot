@@ -47,3 +47,7 @@ src/Our.Umbraco.Honeypot.WebsiteV8/Umbraco
 src/Our.Umbraco.Honeypot.V8/obj
 src/Our.Umbraco.Honeypot.V8/bin
 src/Our.Umbraco.Honeypot.V8/bin
+src/Tests/Our.Umbraco.Honeypot.Core.Tests/bin
+src/Tests/Our.Umbraco.Honeypot.Core.Tests/obj
+src/Tests/Our.Umbraco.Honeypot.Tests/bin
+src/Tests/Our.Umbraco.Honeypot.Tests/obj

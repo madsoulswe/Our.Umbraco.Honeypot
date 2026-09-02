@@ -12,21 +12,24 @@ namespace Our.Umbraco.Honeypot
 
     public class HoneypotValidationNotificationHandler : INotificationHandler<FormValidateNotification>
     {
-        public HoneypotValidationNotificationHandler(IOptions<HoneypotOptions> options)
+        private readonly HoneypotService _honeypotService;
+        private readonly HoneypotOptions _options;
+
+        public HoneypotValidationNotificationHandler(HoneypotService honeypotService, IOptions<HoneypotOptions> options)
         {
-            Options = options.Value;
+            _honeypotService = honeypotService;
+            _options = options.Value;
         }
 
-        private HoneypotOptions Options { get; }
-        
+
         public void Handle(FormValidateNotification notification)
         {
-            if (!Options.HoneypotEnableFieldCheck && !Options.HoneypotEnableTimeCheck)
+            if (!_options.HoneypotEnableFieldCheck && !_options.HoneypotEnableTimeCheck)
                 return;
 
             if(notification.Context.IsHoneypotTrapped())
             {
-                notification.ModelState.AddModelError("error", Options.HoneypotMessage);
+                notification.ModelState.AddModelError("error", _options.HoneypotMessage);
             }
         }
     }

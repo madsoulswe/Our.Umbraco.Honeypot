@@ -67,18 +67,18 @@ namespace Our.Umbraco.Honeypot.Core
         
         public TimeSpan HoneypotMinTimeDuration { get; set; }
 
-        internal bool HoneypotIsFieldName(string name)
+        public bool HoneypotIsFieldName(string name)
         {
-            if(!string.IsNullOrWhiteSpace(HoneypotPrefixFieldName))
-                return name.StartsWith($"{HoneypotPrefixFieldName}");
+            if(!string.IsNullOrWhiteSpace(HoneypotPrefixFieldName) && name.StartsWith($"{HoneypotPrefixFieldName}"))
+                return true;
 
-            if (!string.IsNullOrWhiteSpace(HoneypotSuffixFieldName))
-                return name.EndsWith($"{HoneypotSuffixFieldName}");
+            if (!string.IsNullOrWhiteSpace(HoneypotSuffixFieldName) && name.EndsWith($"{HoneypotSuffixFieldName}"))
+                return true;
 
             return false;
         }
 
-        internal string HoneypotGetFieldName(string name)
+        public string HoneypotGetFieldName(string name)
         {
             return $"{HoneypotPrefixFieldName}{name}";
         }
