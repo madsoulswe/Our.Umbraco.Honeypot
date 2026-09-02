@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net472;net5.0;net6.0;net7.0;net8.0;net10.0</TargetFrameworks>
+		<TargetFrameworks>net5.0;net6.0;net7.0;net8.0;net10.0</TargetFrameworks>
 		<Description>Our.Umbraco.Honeypot.Core</Description>
 		<Copyright>Björnmamman AB Sverige</Copyright>
 		<PackageProjectUrl>https://bjornmamman.se/</PackageProjectUrl>
@@ -35,10 +35,6 @@
 		<PackageReference Include="Microsoft.AspNetCore.Razor" Version="2.2.0" />
 		
 
-	</ItemGroup>
-	<ItemGroup Condition="'$(TargetFramework)' == 'net472'">
-		<PackageReference Include="UmbracoCms.Core" Version="8.7.1" />
-		<PackageReference Include="UmbracoCms.Web" Version="8.7.1" />
 	</ItemGroup>
 	<ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
 		<PackageReference Include="Umbraco.Cms.Core" Version="9.0.0" />
