@@ -44,10 +44,11 @@
 			<PackagePath>buildTransitive</PackagePath>
 		</None>
 
-		<None Remove="Views\Partials\Forms\Themes\default\Fieldtypes\FieldType.Honeypot.cshtml" />
-		<Content Include="Views\Partials\Forms\Themes\default\Fieldtypes\FieldType.Honeypot.cshtml">
-		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Content>
+		<None Remove="Views\Partials\Forms\Themes\default\FieldTypes\FieldType.Honeypot.cshtml" />
+		<None Include="Views\Partials\Forms\Themes\default\FieldTypes\FieldType.Honeypot.cshtml">
+			<Pack>True</Pack>
+			<PackagePath>content\Views\Partials\Forms\Themes\default\Fieldtypes\FieldType.Honeypot.cshtml</PackagePath>
+		</None>
 
 	</ItemGroup>
 
