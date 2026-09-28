@@ -23,6 +23,7 @@ namespace Our.Umbraco.Honeypot.Core
             HoneypotFieldClass = ConfigurationManager.AppSettings["HoneypotFieldClass"] ?? "hp-field";
             HoneypotFieldNames = ConfigurationManager.AppSettings["HoneypotFieldNames"]?.Split(',') ?? new string[] { "Name", "Phone", "Comment", "Message", "Email", "Website" };
             HoneypotMessage = ConfigurationManager.AppSettings["HoneypotMessage"] ?? "Something went wrong (HP)";
+            HoneypotFieldTypeName = ConfigurationManager.AppSettings["HoneypotFieldTypeName"] ?? "𝖍𝖔𝖓𝖊𝖞𝖕𝖔𝖙";
         }
         #endif
 
@@ -39,11 +40,14 @@ namespace Our.Umbraco.Honeypot.Core
             HoneypotFieldClass = "hp-field";
             HoneypotFieldNames = new string[] { "Name", "Phone", "Comment", "Message", "Email", "Website" };
             HoneypotMessage = "Something went wrong (HP)";
+            HoneypotFieldTypeName = "𝖍𝖔𝖓𝖊𝖞𝖕𝖔𝖙";
 
         }
         #endif
 
         public bool HoneypotEnableFieldCheck { get; set; }
+
+        public string HoneypotFieldTypeName { get; set; }
 
         public string HoneypotMessage { get; set; }
 
@@ -67,18 +71,18 @@ namespace Our.Umbraco.Honeypot.Core
         
         public TimeSpan HoneypotMinTimeDuration { get; set; }
 
-        internal bool HoneypotIsFieldName(string name)
+        public bool HoneypotIsFieldName(string name)
         {
-            if(!string.IsNullOrWhiteSpace(HoneypotPrefixFieldName))
-                return name.StartsWith($"{HoneypotPrefixFieldName}");
+            if(!string.IsNullOrWhiteSpace(HoneypotPrefixFieldName) && name.StartsWith($"{HoneypotPrefixFieldName}"))
+                return true;
 
-            if (!string.IsNullOrWhiteSpace(HoneypotSuffixFieldName))
-                return name.EndsWith($"{HoneypotSuffixFieldName}");
+            if (!string.IsNullOrWhiteSpace(HoneypotSuffixFieldName) && name.EndsWith($"{HoneypotSuffixFieldName}"))
+                return true;
 
             return false;
         }
 
-        internal string HoneypotGetFieldName(string name)
+        public string HoneypotGetFieldName(string name)
         {
             return $"{HoneypotPrefixFieldName}{name}";
         }

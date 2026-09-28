@@ -28,6 +28,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Our.Umbraco.Honeypot.Websit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Our.Umbraco.Honeypot.WebsiteV13", "Our.Umbraco.Honeypot.WebsiteV13\Our.Umbraco.Honeypot.WebsiteV13.csproj", "{FCD5B969-3767-45D8-9BA9-BB73B378B3BE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{44634359-7E28-4BE2-8F71-C586AB64DC16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Our.Umbraco.Honeypot.Core.Tests", "Tests\Our.Umbraco.Honeypot.Core.Tests\Our.Umbraco.Honeypot.Core.Tests.csproj", "{8DCF2D8B-10E0-4013-BF2C-33003A6EA8BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Our.Umbraco.Honeypot.Tests", "Tests\Our.Umbraco.Honeypot.Tests\Our.Umbraco.Honeypot.Tests.csproj", "{0338A0CA-F286-45FE-BD0B-4602CA1E991C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,6 +72,14 @@ Global
 		{FCD5B969-3767-45D8-9BA9-BB73B378B3BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCD5B969-3767-45D8-9BA9-BB73B378B3BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCD5B969-3767-45D8-9BA9-BB73B378B3BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DCF2D8B-10E0-4013-BF2C-33003A6EA8BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DCF2D8B-10E0-4013-BF2C-33003A6EA8BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DCF2D8B-10E0-4013-BF2C-33003A6EA8BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DCF2D8B-10E0-4013-BF2C-33003A6EA8BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0338A0CA-F286-45FE-BD0B-4602CA1E991C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0338A0CA-F286-45FE-BD0B-4602CA1E991C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0338A0CA-F286-45FE-BD0B-4602CA1E991C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0338A0CA-F286-45FE-BD0B-4602CA1E991C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,6 +90,8 @@ Global
 		{DE4DA5A5-7E18-4750-B448-24D5CF44016C} = {CD606107-8CC7-47B0-A0EB-C3E169CCA841}
 		{511E1903-F18D-42B8-9835-24BB21E8D51D} = {CD606107-8CC7-47B0-A0EB-C3E169CCA841}
 		{FCD5B969-3767-45D8-9BA9-BB73B378B3BE} = {CD606107-8CC7-47B0-A0EB-C3E169CCA841}
+		{8DCF2D8B-10E0-4013-BF2C-33003A6EA8BA} = {44634359-7E28-4BE2-8F71-C586AB64DC16}
+		{0338A0CA-F286-45FE-BD0B-4602CA1E991C} = {44634359-7E28-4BE2-8F71-C586AB64DC16}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {71AC7436-4D41-4335-9C2A-0A6ECAF18C87}

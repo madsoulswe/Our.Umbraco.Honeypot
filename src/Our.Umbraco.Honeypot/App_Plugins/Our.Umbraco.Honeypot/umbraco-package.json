@@ -1,0 +1,12 @@
+{
+  "name": "Our.Umbraco.Honeypot",
+  "version": "1.0.0",
+  "extensions": [
+    {
+      "type": "backofficeEntryPoint",
+      "alias": "Our.Umbraco.Honeypot.EntryPoint",
+      "name": "Honeypot Entry Point",
+      "js": "/App_Plugins/Our.Umbraco.Honeypot/Backoffice/Editors/HoneyPot.FiledPreview.js"
+    }
+  ]
+}
