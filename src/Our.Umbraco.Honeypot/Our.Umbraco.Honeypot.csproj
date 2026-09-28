@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net5.0;net6.0;net7.0;net8.0</TargetFrameworks>
+		<TargetFrameworks>net5.0;net6.0;net7.0;net8.0;net10.0</TargetFrameworks>
 		<Description>Our.Umbraco.Honeypot</Description>
 		<Copyright>Björnmamman AB Sverige</Copyright>
 		<PackageProjectUrl>https://github.com/madsoulswe/Our.Umbraco.Honeypot/</PackageProjectUrl>
@@ -82,12 +82,18 @@
 		<PackageReference Include="Umbraco.Forms.Web" Version="[13.0.0,14.0.0)" />
 	</ItemGroup>
 
+	<ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
+		<PackageReference Include="Umbraco.Cms.Web.Common" Version="[17.0.0,19.0.0)" />
+		<PackageReference Include="Umbraco.Forms.Core" Version="[17.0.0,19.0.0)" />
+		<PackageReference Include="Umbraco.Forms.Web" Version="[17.0.0,19.0.0)" />
+	</ItemGroup>
+
 	<ItemGroup>
 	  <ProjectReference Include="..\Our.Umbraco.Honeypot.Core\Our.Umbraco.Honeypot.Core.csproj" />
 	</ItemGroup>
 	
 	<ItemGroup>
-	  <Content Update="App_Plugins\Our.Umbraco.Honeypot\FieldTypes\Honeypot.html">
+	  <Content Update="App_Plugins\Our.Umbraco.Honeypot\**\*.*">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </Content>
 	</ItemGroup>
