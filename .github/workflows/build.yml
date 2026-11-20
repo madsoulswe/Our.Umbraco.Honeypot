@@ -42,6 +42,19 @@ jobs:
       
       - name: Create Our.Umbraco.Honeypot
         run: dotnet pack ./src/Our.Umbraco.Honeypot -c ${{ env.CONFIG }} -o ${{ env.OUTPUT }} /p:version=${{ steps.get_version.outputs.VERSION }} 
+
+      - name: Verify packaged backoffice assets
+        shell: pwsh
+        run: |
+          Add-Type -AssemblyName System.IO.Compression.FileSystem
+          $package = Resolve-Path "${{ env.OUTPUT }}/Our.Umbraco.Honeypot.${{ steps.get_version.outputs.VERSION }}.nupkg"
+          $extracted = Join-Path $env:RUNNER_TEMP "honeypot-package"
+          [System.IO.Compression.ZipFile]::ExtractToDirectory($package, $extracted)
+          foreach ($content in @("content", "contentFiles/any/net10.0")) {
+            $env:HONEYPOT_PLUGIN_PATH = Join-Path $extracted "$content/App_Plugins/Our.Umbraco.Honeypot"
+            node --experimental-vm-modules --test src/Tests/Backoffice/backoffice.test.mjs
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          }
       
       - name: Create Our.Umbraco.Honeypot.V8
         run: dotnet pack ./src/Our.Umbraco.Honeypot.V8 -c ${{ env.CONFIG }} -o ${{ env.OUTPUT }} /p:version=${{ steps.get_version.outputs.VERSION }} 

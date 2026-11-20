@@ -85,3 +85,9 @@ public async Task<IActionResult> Form(FormModel model)
 ```
 
 **HoneypotFieldTypeName:** *Umbraco Forms renders the fieldtypename on the frontend as a class and this allows you to rename the field.*
+
+### Backoffice regression test
+
+Run `node --experimental-vm-modules --test src/Tests/Backoffice/backoffice.test.mjs`
+to check the Forms preview and editor registration. Set `HONEYPOT_PLUGIN_PATH` to an
+extracted package's `App_Plugins/Our.Umbraco.Honeypot` directory to test packaged assets.
